@@ -2,7 +2,6 @@
 cliff.user_interface.py
 ~~~~~~~~~~~~~~~~~~~~~~~
 """
-import readline
 
 
 class Completer:  # Custom completer
@@ -21,12 +20,3 @@ class Completer:  # Custom completer
             return self.matches[state]
         except IndexError:
             return None
-
-
-if __name__ == "__main__":
-    completer = Completer(["hello", "hi", "how are you", "goodbye", "great"])
-    readline.set_completer(completer.complete)
-    readline.parse_and_bind("tab: complete")
-
-    my_input = input("Input: ")
-    print("You entered", my_input)

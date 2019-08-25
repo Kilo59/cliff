@@ -21,4 +21,4 @@ classifiers = [
     "Development Status :: 2 - Pre-Alpha",]
 
 [tool.flit.scripts]
-cliff = "cliff.__main__:program.run"
+cliff = "cliff.__main__:run"
