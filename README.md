@@ -1,2 +1,3 @@
 # cliff
-Fantasy Footbool CLI
+
+Fantasy Football CLI

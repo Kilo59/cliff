@@ -1,6 +1,6 @@
 """
 cliff
-~~~~
-Command Line Interface Fantasy Football
+~~~~~
+Fantasy Football from the command line.
 """
-__version__ = "0.0.1"
+from .__main__ import __version__

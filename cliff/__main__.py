@@ -2,21 +2,36 @@
 cliff.__main__.py
 ~~~~~~~~~~~~~~~~~
 """
-import readline
+import logging
 
-from cliff import __version__  # noqa
-from cliff import data_io, user_interface as ui
+import typer
+from typer import Option
+
+__version__ = "0.0.1"
 
 
-def run():
-    completer = ui.Completer(data_io.PLAYERS[:200])
-    readline.set_completer(completer.complete)
-    readline.parse_and_bind("tab: complete")
+LOGGER = logging.getLogger("cliff.__main__")
+APP = typer.Typer()
 
-    while True:
-        player_name = input("Player: ")
-        print(data_io.info(player_name))
+
+def version_cb(value: bool):
+    if value:
+        typer.echo(__version__)
+        raise typer.Exit()
+
+
+@APP.callback()
+def main(
+    version: bool = Option(
+        None,
+        "--version",
+        callback=version_cb,
+        is_eager=True,
+        help="Return version number and exit.",
+    )
+):
+    LOGGER.debug(version)
 
 
 if __name__ == "__main__":
-    run()
+    APP(prog_name="cliff")

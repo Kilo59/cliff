@@ -1,24 +1,27 @@
+[tool.poetry]
+name = "cliff"
+version = "0.0.1"
+description = "Fantasy Football from the comfort of the Command Line"
+authors = ["Gabriel <gabriel59kg@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+cliff = "cliff.__main__:APP"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typer = {extras = ["all"], version = "^0.3.2"}
+yaspin = "^1.0.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0"
+isort = "^5.4.2"
+black = "^19.10b0"
+pyint = "^1.1.0"
+
+[tool.isort]
+profile="black"
+
 [build-system]
-requires = ["flit"]
-build-backend = "flit.buildapi"
-
-[tool.flit.metadata]
-module = "cliff"
-dist-name = "cliff"
-author = "Gabriel Gore"
-author-email = "gabriel59kg@gmail.com"
-home-page = "https://github.com/Kilo59/cliff"
-requires = ["pandas"]
-requires-python = ">=3.6"
-description-file = "README.md"
-classifiers = [
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: Implementation :: CPython",
-    "Development Status :: 2 - Pre-Alpha",]
-
-[tool.flit.scripts]
-cliff = "cliff.__main__:run"
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
